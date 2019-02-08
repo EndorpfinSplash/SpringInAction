@@ -7,11 +7,45 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-    <!--<context:annotation-config/>-->
-    <context:component-scan base-package="com.springingaction.spingidol"></context:component-scan>
+    <context:annotation-config/>
+    <!--<context:component-scan base-package="com.springingaction.spingidol"></context:component-scan>-->
 
-    <bean id="sp" class="com.springingaction.spingidol.SpringHello"></bean>
-    <bean id="Sexophon" class="com.springingaction.spingidol.Saxophon"/>
-    <!--<bean id="Kolya" class="com.springingaction.spingidol.Instrumentalist"/>-->
+    <bean id="sp" class="com.springinaction.spingidol.SpringHello"></bean>
+
+    <!--<bean id="Sexophon" class="com.springingaction.spingidol.SaxophonCl"/>-->
+    <!--<bean id="Kolya" class="Instrumentalist"/>-->
+
+    <bean id="duke" class="com.springinaction.spingidol.PoeticJuggler">
+        <constructor-arg value="15"/>
+        <constructor-arg ref="sonnet29"/>
+    </bean>
+    <!-- Внутри фреймворк выполнит следующие действия:
+    Poem sonnet29 = new Sonnet29();
+    Performer duke = new PoeticJuggler(15, sonnet29);
+      -->
+
+    <!-- очередность прописывания бинов не важна, можно писать в любой последовательности
+       -->
+    <bean id="sonnet29" class="com.springinaction.spingidol.Sonet29"/>
+
+    <bean id="theStage"
+          class="com.springinaction.spingidol.Stage"
+          factory-method="getInstance"
+    />
+
+    <bean id="kenny"
+          class="com.springinaction.spingidol.Instrumentalist">
+        <property name="song" value="Jingle Bells"></property>
+        <property name="instrument" ref="piano"></property>
+    </bean>
+
+    <bean id="saxophone" class="com.springinaction.spingidol.Saxophone"/>
+    <bean id="piano" class="com.springinaction.spingidol.Piano"/>
 
 </beans>
+
+        <!--
+         - создать бин можно если у него есть конструктор по умолчанию
+         - инжектировать свойства можно  если в классе есть сеттеры
+
+        -->
