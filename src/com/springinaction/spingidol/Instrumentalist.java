@@ -20,7 +20,7 @@ public class Instrumentalist implements Performer{
         this.song = song;
     }
 
-    private Instrument instrument;
+    public Instrument instrument;
 
     public Instrument getInstrument() {
         return instrument;

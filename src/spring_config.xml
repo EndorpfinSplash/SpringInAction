@@ -36,11 +36,35 @@
     <bean id="kenny"
           class="com.springinaction.spingidol.Instrumentalist">
         <property name="song" value="Jingle Bells"></property>
-        <property name="instrument" ref="piano"></property>
+        <property name="instrument" ref="instrument"></property>
     </bean>
 
-    <bean id="saxophone" class="com.springinaction.spingidol.Saxophone"/>
-    <bean id="piano" class="com.springinaction.spingidol.Piano"/>
+    <bean id="kenny2"
+          class="com.springinaction.spingidol.Instrumentalist"
+          autowire="byName">
+        <property name="song" value="Jingle Bells"></property>
+    </bean>
+
+    <bean id="kenny_bean_autowired_by_type"
+          class="com.springinaction.spingidol.Instrumentalist"
+          autowire="byType">
+        <property name="song" value="Jingle Bells"></property>
+    </bean>
+
+    <bean id="instrument" class="com.springinaction.spingidol.Piano"/>
+
+
+    <bean id="kennyInner"
+          class="com.springinaction.spingidol.Instrumentalist">
+        <property name="song" value="Jingle Bells"></property>
+        <property name="instrument" ref="instrument">
+            <!--<bean class="com.springinaction.spingidol.Saxophone"/>-->
+        </property>
+    </bean>
+
+    <!--<bean id="saxophone" class="com.springinaction.spingidol.Saxophone"-->
+          <!--scope="prototype"/>-->
+    <!--<bean id="piano" class="com.springinaction.spingidol.Piano"/>-->
 
 </beans>
 
