@@ -1,5 +1,8 @@
 package com.springinaction.spingidol;
 
+import javax.inject.Inject;
+import javax.inject.Named;
+
 public class Instrumentalist implements Performer{
 
     public Instrumentalist() {
@@ -20,6 +23,8 @@ public class Instrumentalist implements Performer{
         this.song = song;
     }
 
+    @Inject
+    @Named("saxofonchik")
     public Instrument instrument;
 
     public Instrument getInstrument() {

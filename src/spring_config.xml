@@ -7,8 +7,8 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context-3.0.xsd">
-    <context:annotation-config/>
-    <!--<context:component-scan base-package="com.springingaction.spingidol"></context:component-scan>-->
+    <!--<context:annotation-config/>-->
+    <context:component-scan base-package="com.springinaction.spingidol"></context:component-scan>
 
     <bean id="sp" class="com.springinaction.spingidol.SpringHello"></bean>
 
@@ -33,34 +33,44 @@
           factory-method="getInstance"
     />
 
-    <bean id="kenny"
+    <!--<bean id="kenny"
           class="com.springinaction.spingidol.Instrumentalist">
         <property name="song" value="Jingle Bells"></property>
         <property name="instrument" ref="instrument"></property>
     </bean>
 
-    <bean id="kenny2"
-          class="com.springinaction.spingidol.Instrumentalist"
-          autowire="byName">
-        <property name="song" value="Jingle Bells"></property>
-    </bean>
-
-    <bean id="kenny_bean_autowired_by_type"
-          class="com.springinaction.spingidol.Instrumentalist"
-          autowire="byType">
-        <property name="song" value="Jingle Bells"></property>
-    </bean>
-
-    <bean id="instrument" class="com.springinaction.spingidol.Piano"/>
-
-
     <bean id="kennyInner"
           class="com.springinaction.spingidol.Instrumentalist">
         <property name="song" value="Jingle Bells"></property>
         <property name="instrument" ref="instrument">
-            <!--<bean class="com.springinaction.spingidol.Saxophone"/>-->
+            &lt;!&ndash;<bean class="com.springinaction.spingidol.Saxophone"/>&ndash;&gt;
         </property>
     </bean>
+-->
+<!--    <bean id="kenny2"
+          class="com.springinaction.spingidol.Instrumentalist"
+          autowire="byName">
+        <property name="song" value="Jingle Bells"></property>
+    </bean>
+    -->
+
+    <bean id="kennyAutowired"
+          class="com.springinaction.spingidol.Instrumentalist"
+          >
+        <property name="song" value="Jingle Bells"></property>
+    </bean>
+
+<!--    <bean id="kenny_bean_autowired_by_type"
+          class="com.springinaction.spingidol.Instrumentalist"
+          autowire="byType">
+        <property name="song" value="Jingle Bells"></property>
+    </bean>-->
+
+
+    <!--<bean id="instrument" class="com.springinaction.spingidol.Piano"/>-->
+
+   <!-- <bean id="Saxophone" class="com.springinaction.spingidol.Saxophone"/>-->
+
 
     <!--<bean id="saxophone" class="com.springinaction.spingidol.Saxophone"-->
           <!--scope="prototype"/>-->
@@ -70,6 +80,6 @@
 
         <!--
          - создать бин можно если у него есть конструктор по умолчанию
-         - инжектировать свойства можно  если в классе есть сеттеры
+         - инжектировать свойства можно если в классе есть сеттеры
 
         -->
